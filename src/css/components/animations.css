@@ -1,0 +1,509 @@
+/* Animations CSS - The River Game */
+/* Cozy, gentle animations that enhance the warm atmosphere */
+
+/* Fade In/Out Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Gentle Bounce Animation */
+@keyframes gentleBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Floating Animation for UI Elements */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Shimmer Effect for Special Items */
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+/* Pulse Animation for Interactive Elements */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(244, 164, 96, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(244, 164, 96, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(244, 164, 96, 0);
+    }
+}
+
+/* Cooking Steam Animation */
+@keyframes steam {
+    0% {
+        opacity: 0.8;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(-20px) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-40px) scale(1.5);
+    }
+}
+
+/* Sparkle Animation for Cleaning */
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+}
+
+/* Gentle Glow Animation */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(244, 164, 96, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(244, 164, 96, 0.8);
+    }
+}
+
+/* Typewriter Effect for Dialogue */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Heart Beat Animation for Relationships */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+/* Wobble Animation for Errors */
+@keyframes wobble {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    15% {
+        transform: translateX(-5px) rotate(-2deg);
+    }
+    30% {
+        transform: translateX(4px) rotate(1deg);
+    }
+    45% {
+        transform: translateX(-3px) rotate(-1deg);
+    }
+    60% {
+        transform: translateX(2px) rotate(0.5deg);
+    }
+    75% {
+        transform: translateX(-1px) rotate(-0.25deg);
+    }
+}
+
+/* Page Transition Animations */
+.page-enter {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.page-exit {
+    animation: fadeOut 0.3s ease-in-out;
+}
+
+/* Button Hover Animations */
+.menu-btn:hover,
+.ui-btn:hover,
+.action-btn:hover {
+    animation: gentleBounce 0.6s ease-in-out;
+}
+
+/* Character Selection Animation */
+.class-option {
+    animation: slideInFromLeft 0.5s ease-out;
+}
+
+.class-option:nth-child(even) {
+    animation: slideInFromRight 0.5s ease-out;
+}
+
+.class-option:nth-child(1) { animation-delay: 0.1s; }
+.class-option:nth-child(2) { animation-delay: 0.2s; }
+.class-option:nth-child(3) { animation-delay: 0.3s; }
+.class-option:nth-child(4) { animation-delay: 0.4s; }
+.class-option:nth-child(5) { animation-delay: 0.5s; }
+
+/* Loading Spinner Animation */
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* Floating UI Elements */
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Special Item Shimmer */
+.magical-item {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(244, 164, 96, 0.4),
+        transparent
+    );
+    background-size: 200px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Interactive Element Pulse */
+.interactive:hover {
+    animation: pulse 1.5s infinite;
+}
+
+/* Cooking Animations */
+.cooking-steam {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: steam 2s infinite;
+}
+
+.cooking-steam:nth-child(1) { animation-delay: 0s; left: 45%; }
+.cooking-steam:nth-child(2) { animation-delay: 0.3s; left: 50%; }
+.cooking-steam:nth-child(3) { animation-delay: 0.6s; left: 55%; }
+
+/* Cleaning Sparkles */
+.cleaning-sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #FFD700, transparent);
+    animation: sparkle 1.5s infinite;
+}
+
+.cleaning-sparkle:nth-child(1) { animation-delay: 0s; top: 20%; left: 30%; }
+.cleaning-sparkle:nth-child(2) { animation-delay: 0.5s; top: 40%; left: 60%; }
+.cleaning-sparkle:nth-child(3) { animation-delay: 1s; top: 70%; left: 20%; }
+
+/* Relationship Hearts Animation */
+.heart.filled {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Inventory Item Glow for Quality */
+.inventory-slot.rare {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Modal Entrance Animations */
+.modal-overlay.active .modal-content {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Dialogue Text Animation */
+.dialogue-text {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary-warm);
+    animation: typewriter 2s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: var(--primary-warm);
+    }
+}
+
+/* Error/Warning Animations */
+.error-shake {
+    animation: wobble 0.5s ease-in-out;
+}
+
+/* Success Animations */
+.success-bounce {
+    animation: gentleBounce 0.8s ease-in-out;
+}
+
+/* Seasonal Transition Animations */
+@keyframes seasonTransition {
+    0% {
+        filter: hue-rotate(0deg) brightness(1);
+    }
+    25% {
+        filter: hue-rotate(90deg) brightness(1.1);
+    }
+    50% {
+        filter: hue-rotate(180deg) brightness(0.9);
+    }
+    75% {
+        filter: hue-rotate(270deg) brightness(1.1);
+    }
+    100% {
+        filter: hue-rotate(360deg) brightness(1);
+    }
+}
+
+.season-transition {
+    animation: seasonTransition 3s ease-in-out;
+}
+
+/* Boat Movement Animation */
+@keyframes boatSway {
+    0%, 100% {
+        transform: rotate(-1deg);
+    }
+    50% {
+        transform: rotate(1deg);
+    }
+}
+
+.boat-sway {
+    animation: boatSway 4s ease-in-out infinite;
+}
+
+/* Water Ripple Effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.water-ripple {
+    position: absolute;
+    border: 2px solid rgba(135, 206, 235, 0.6);
+    border-radius: 50%;
+    animation: ripple 1.5s ease-out;
+}
+
+/* Ingredient Drop Animation */
+@keyframes ingredientDrop {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.ingredient-drop {
+    animation: ingredientDrop 0.8s ease-out;
+}
+
+/* Recipe Discovery Animation */
+@keyframes recipeDiscovery {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.recipe-discovered {
+    animation: recipeDiscovery 1s ease-out;
+}
+
+/* Companion Join Animation */
+@keyframes companionJoin {
+    0% {
+        transform: translateX(-100px) scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(10px) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.companion-join {
+    animation: companionJoin 1.2s ease-out;
+}
+
+/* Capacity Bar Fill Animation */
+@keyframes capacityFill {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--target-width);
+    }
+}
+
+.capacity-fill.animated {
+    animation: capacityFill 1s ease-out;
+}
+
+/* Stagger Animation for Lists */
+.stagger-item {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Keep essential loading spinner but make it static */
+    .loading-spinner {
+        animation: none;
+        border: 4px solid var(--text-white);
+        border-top: 4px solid transparent;
+    }
+}
+
+/* Performance Optimizations */
+.will-animate {
+    will-change: transform, opacity;
+}
+
+.will-animate.animation-complete {
+    will-change: auto;
+}
+
+/* Hover Effects with Smooth Transitions */
+.smooth-hover {
+    transition: all var(--transition-medium);
+}
+
+.smooth-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Focus Animations for Accessibility */
+.focus-ring:focus {
+    animation: pulse 1s ease-in-out;
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+/* Custom Easing Functions */
+.ease-bounce {
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.ease-gentle {
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ease-cozy {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

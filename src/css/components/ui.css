@@ -1,0 +1,622 @@
+/* UI Components CSS - The River Game */
+/* Specific styling for UI components and interactive elements */
+
+/* Inventory Interface */
+.inventory-modal {
+    width: 800px;
+    max-width: 90vw;
+}
+
+.inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--secondary-warm);
+}
+
+.inventory-header h2 {
+    color: var(--primary-warm);
+    margin-bottom: 0;
+}
+
+.close-btn {
+    background: var(--accent-warm);
+    color: var(--text-white);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all var(--transition-fast);
+}
+
+.close-btn:hover {
+    background: var(--text-primary);
+    transform: scale(1.1);
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.inventory-slot {
+    aspect-ratio: 1;
+    background: var(--bg-secondary);
+    border: 2px solid var(--secondary-warm);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.inventory-slot:hover {
+    border-color: var(--primary-warm);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.inventory-slot.empty {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.inventory-slot.empty:hover {
+    transform: none;
+    border-color: var(--secondary-warm);
+    box-shadow: none;
+}
+
+.item-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.item-name {
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-family: var(--font-ui);
+}
+
+.item-quantity {
+    position: absolute;
+    top: var(--spacing-xs);
+    right: var(--spacing-xs);
+    background: var(--primary-warm);
+    color: var(--text-white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.item-quality {
+    position: absolute;
+    bottom: var(--spacing-xs);
+    left: var(--spacing-xs);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.item-quality.fresh { background: var(--accent-green); }
+.item-quality.good { background: var(--primary-warm); }
+.item-quality.poor { background: var(--accent-warm); }
+.item-quality.spoiled { background: #8B4513; }
+
+/* Recipe Book Interface */
+.recipe-modal {
+    width: 900px;
+    max-width: 95vw;
+    height: 600px;
+    max-height: 90vh;
+}
+
+.recipe-book {
+    display: flex;
+    height: 100%;
+}
+
+.recipe-categories {
+    width: 200px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-right: var(--spacing-md);
+}
+
+.recipe-category {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: var(--spacing-sm);
+    text-align: left;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-ui);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.recipe-category:hover,
+.recipe-category.active {
+    background: var(--primary-warm);
+    color: var(--text-white);
+}
+
+.recipe-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.recipe-item {
+    background: var(--bg-secondary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.recipe-item:hover {
+    border-color: var(--primary-warm);
+    transform: translateX(4px);
+}
+
+.recipe-item.selected {
+    border-color: var(--primary-warm);
+    background: var(--light-warm);
+}
+
+.recipe-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.recipe-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.recipe-difficulty {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.recipe-difficulty.easy {
+    background: var(--accent-green);
+    color: var(--text-white);
+}
+
+.recipe-difficulty.medium {
+    background: var(--primary-warm);
+    color: var(--text-white);
+}
+
+.recipe-difficulty.hard {
+    background: var(--accent-warm);
+    color: var(--text-white);
+}
+
+/* Companion Interface */
+.companions-modal {
+    width: 700px;
+    max-width: 90vw;
+}
+
+.companions-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.companion-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--secondary-warm);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    transition: all var(--transition-fast);
+}
+
+.companion-card:hover {
+    border-color: var(--primary-warm);
+    box-shadow: var(--shadow-soft);
+}
+
+.companion-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary-warm);
+    object-fit: cover;
+}
+
+.companion-info {
+    flex: 1;
+}
+
+.companion-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.companion-class {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+    font-style: italic;
+}
+
+.companion-skills {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.skill-tag {
+    background: var(--primary-warm);
+    color: var(--text-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.companion-relationship {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.relationship-level {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.relationship-hearts {
+    display: flex;
+    gap: 2px;
+}
+
+.heart {
+    width: 16px;
+    height: 16px;
+    color: var(--accent-warm);
+}
+
+.heart.filled {
+    color: var(--primary-warm);
+}
+
+/* Cooking Interface */
+.cooking-modal {
+    width: 800px;
+    max-width: 95vw;
+    height: 600px;
+    max-height: 90vh;
+}
+
+.cooking-interface {
+    display: flex;
+    height: 100%;
+    gap: var(--spacing-lg);
+}
+
+.ingredients-panel {
+    width: 250px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.ingredients-panel h3 {
+    color: var(--primary-warm);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.ingredient-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.ingredient-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--secondary-warm);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
+    cursor: grab;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.ingredient-item:hover {
+    border-color: var(--primary-warm);
+    transform: translateX(4px);
+}
+
+.ingredient-item:active {
+    cursor: grabbing;
+}
+
+.cooking-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-display {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.recipe-display h3 {
+    color: var(--primary-warm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cooking-pot {
+    flex: 1;
+    background: var(--bg-secondary);
+    border: 3px dashed var(--secondary-warm);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 200px;
+}
+
+.cooking-pot.active {
+    border-color: var(--primary-warm);
+    background: var(--light-warm);
+}
+
+.pot-contents {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.pot-ingredient {
+    background: var(--primary-warm);
+    color: var(--text-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.remove-ingredient {
+    background: none;
+    border: none;
+    color: var(--text-white);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cook-button {
+    background: var(--accent-green);
+    color: var(--text-white);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.cook-button:hover:not(:disabled) {
+    background: var(--accent-warm);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.cook-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Settings Interface */
+.settings-modal {
+    width: 600px;
+    max-width: 90vw;
+}
+
+.settings-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.settings-section h3 {
+    color: var(--primary-warm);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--secondary-warm);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--bg-secondary);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.setting-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+.setting-control {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    border: 2px solid var(--secondary-warm);
+}
+
+.toggle-switch.active {
+    background: var(--primary-warm);
+    border-color: var(--primary-warm);
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: var(--text-white);
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+}
+
+.toggle-switch.active::after {
+    transform: translateX(26px);
+}
+
+/* Range Slider */
+.range-slider {
+    width: 120px;
+    height: 6px;
+    background: var(--bg-secondary);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+.range-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--primary-warm);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--primary-warm);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Responsive adjustments for UI components */
+@media (max-width: 768px) {
+    .inventory-modal,
+    .recipe-modal,
+    .companions-modal,
+    .cooking-modal,
+    .settings-modal {
+        width: 95vw;
+        height: 90vh;
+        max-height: 90vh;
+    }
+
+    .recipe-book {
+        flex-direction: column;
+    }
+
+    .recipe-categories {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .cooking-interface {
+        flex-direction: column;
+    }
+
+    .ingredients-panel {
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .companion-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .inventory-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}

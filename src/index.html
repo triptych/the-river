@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The River - A cozy narrative adventure about a retired adventurer's final journey">
+        <title>The River - A Cozy Adventure</title>
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/components/ui.css">
+        <link rel="stylesheet" href="css/components/animations.css">
+
+        <!-- Progressive Web App Manifest -->
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#F4A460">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    </head>
+    <body>
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen active">
+            <div class="loading-content">
+                <h1>The River</h1>
+                <div class="loading-spinner"></div>
+                <p>Preparing for your final adventure...</p>
+            </div>
+        </div>
+
+        <!-- Main Menu -->
+        <div id="main-menu" class="screen">
+            <div class="menu-content">
+                <h1 class="game-title">The River</h1>
+                <p class="game-subtitle">A Cozy Adventure</p>
+
+                <nav class="main-nav">
+                    <button id="new-game-btn" class="menu-btn primary">New Journey</button>
+                    <button id="continue-btn" class="menu-btn" disabled="disabled">Continue Journey</button>
+                    <button id="settings-btn" class="menu-btn">Settings</button>
+                    <button id="credits-btn" class="menu-btn">Credits</button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Character Creation -->
+        <div id="character-creation" class="screen">
+            <div class="creation-content">
+                <h2>Choose Your Past</h2>
+                <p>What kind of adventurer were you before retirement?</p>
+
+                <div class="character-classes">
+                    <div class="class-option" data-class="knight">
+                        <img src="assets/images/characters/knight-portrait.png" alt="Retired Knight">
+                        <h3>Retired Knight</h3>
+                        <p>Once a defender of the realm, now skilled in hearty cooking and organization.</p>
+                    </div>
+                    <div class="class-option" data-class="wizard">
+                        <img src="assets/images/characters/wizard-portrait.png" alt="Retired Wizard">
+                        <h3>Retired Wizard</h3>
+                        <p>Former master of magic, now expert in magical ingredient enhancement.</p>
+                    </div>
+                    <div class="class-option" data-class="rogue">
+                        <img src="assets/images/characters/rogue-portrait.png" alt="Retired Rogue">
+                        <h3>Retired Rogue</h3>
+                        <p>Once a master of stealth, now skilled at acquiring rare ingredients.</p>
+                    </div>
+                    <div class="class-option" data-class="ranger">
+                        <img src="assets/images/characters/ranger-portrait.png" alt="Retired Ranger">
+                        <h3>Retired Ranger</h3>
+                        <p>Former wilderness guide, expert at foraging and natural cooking.</p>
+                    </div>
+                    <div class="class-option" data-class="cleric">
+                        <img src="assets/images/characters/cleric-portrait.png" alt="Retired Cleric">
+                        <h3>Retired Cleric</h3>
+                        <p>Once a healer, now specializes in comfort foods and herbal remedies.</p>
+                    </div>
+                </div>
+
+                <div class="creation-actions">
+                    <button id="back-to-menu-btn" class="menu-btn secondary">Back</button>
+                    <button id="start-journey-btn" class="menu-btn primary" disabled="disabled">Start Journey</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Interface -->
+        <div id="game-interface" class="screen">
+            <!-- Top UI Bar -->
+            <div class="ui-top-bar">
+                <div class="journey-info">
+                    <span id="current-location">Riverside Village</span>
+                    <span id="season-indicator">Spring</span>
+                </div>
+                <div class="quick-actions">
+                    <button id="inventory-btn" class="ui-btn">
+                        <span class="icon">🎒</span>
+                        <span class="label">Inventory</span>
+                    </button>
+                    <button id="companions-btn" class="ui-btn">
+                        <span class="icon">👥</span>
+                        <span class="label">Companions</span>
+                    </button>
+                    <button id="recipes-btn" class="ui-btn">
+                        <span class="icon">📖</span>
+                        <span class="label">Recipes</span>
+                    </button>
+                    <button id="settings-game-btn" class="ui-btn">
+                        <span class="icon">⚙️</span>
+                        <span class="label">Settings</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Game Area -->
+            <div class="game-area">
+                <div id="scene-container" class="scene-container">
+                    <!-- Dynamic scene content will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Bottom UI Bar -->
+            <div class="ui-bottom-bar">
+                <div class="boat-status">
+                    <div class="capacity-indicator">
+                        <span class="label">Boat Capacity:</span>
+                        <div class="capacity-bar">
+                            <div class="capacity-fill" style="width: 25%"></div>
+                        </div>
+                        <span class="capacity-text">1/4</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button id="cook-btn" class="action-btn">
+                        <span class="icon">🍳</span>
+                        <span class="label">Cook</span>
+                    </button>
+                    <button id="clean-btn" class="action-btn">
+                        <span class="icon">🧹</span>
+                        <span class="label">Clean</span>
+                    </button>
+                    <button id="travel-btn" class="action-btn primary">
+                        <span class="icon">⛵</span>
+                        <span class="label">Travel</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Overlays -->
+        <div id="modal-overlay" class="modal-overlay">
+            <div id="modal-content" class="modal-content">
+                <!-- Dynamic modal content -->
+            </div>
+        </div>
+
+        <!-- JavaScript Files -->
+        <script src="js/utils/storage.js"></script>
+        <script src="js/utils/helpers.js"></script>
+        <script src="js/systems/inventory.js"></script>
+        <script src="js/systems/companions.js"></script>
+        <script src="js/systems/cooking.js"></script>
+        <script src="js/systems/dialogue.js"></script>
+        <script src="js/systems/scene-manager.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
